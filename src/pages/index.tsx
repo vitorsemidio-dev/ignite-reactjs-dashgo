@@ -1,5 +1,6 @@
 import { Button, Flex, Stack } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/router';
 import { FieldError, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { Input } from '../components/Form/Input';
@@ -15,6 +16,7 @@ const signInFormSchem = yup.object().shape({
 });
 
 export default function Home() {
+  const router = useRouter();
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchem),
   });
@@ -22,7 +24,7 @@ export default function Home() {
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values, event) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(values);
+    router.push('/dashboard');
   };
 
   return (
