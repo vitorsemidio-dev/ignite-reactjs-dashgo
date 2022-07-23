@@ -6,9 +6,10 @@ interface PaginationProps {
   registersPerPage?: number;
   currentPage?: number;
   onPageChange: (page: number) => void;
+  onPrefetcPage: (page: number) => void;
 }
 
-const siblingsCount = 1;
+const siblingsCount = 2;
 
 function generatePagesArray(from: number, to: number) {
   return [...new Array(to - from)]
@@ -23,8 +24,9 @@ export function Pagination({
   registersPerPage = 10,
   currentPage = 1,
   onPageChange,
+  onPrefetcPage,
 }: PaginationProps) {
-  const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
+  const lastPage = Math.ceil(totalCountOfRegisters / registersPerPage);
   const startRange = registersPerPage * (currentPage - 1) + 1;
   const endRange = registersPerPage * currentPage;
 
@@ -57,7 +59,11 @@ export function Pagination({
       <HStack spacing="2">
         {currentPage > 1 + siblingsCount && (
           <>
-            <PaginationItem number={1} onPageChange={onPageChange} />
+            <PaginationItem
+              number={1}
+              onPageChange={onPageChange}
+              onPrefetcPage={onPrefetcPage}
+            />
             {currentPage > 2 + siblingsCount && (
               <Text color="gray.300" width="8" textAlign="center">
                 ...
@@ -73,6 +79,7 @@ export function Pagination({
                 key={page}
                 number={page}
                 onPageChange={onPageChange}
+                onPrefetcPage={onPrefetcPage}
               />
             );
           })}
@@ -81,6 +88,7 @@ export function Pagination({
           number={currentPage}
           isCurrent
           onPageChange={onPageChange}
+          onPrefetcPage={onPrefetcPage}
         />
 
         {nextPages.length > 0 &&
@@ -90,6 +98,7 @@ export function Pagination({
                 key={page}
                 number={page}
                 onPageChange={onPageChange}
+                onPrefetcPage={onPrefetcPage}
               />
             );
           })}
@@ -101,7 +110,11 @@ export function Pagination({
                 ...
               </Text>
             )}
-            <PaginationItem number={lastPage} onPageChange={onPageChange} />
+            <PaginationItem
+              number={lastPage}
+              onPageChange={onPageChange}
+              onPrefetcPage={onPrefetcPage}
+            />
           </>
         )}
       </HStack>

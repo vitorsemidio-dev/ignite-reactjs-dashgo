@@ -23,7 +23,7 @@ import { Header } from '../../components/Header';
 import { Pagination } from '../../components/Pagination';
 import { Sidebar } from '../../components/Sidebar';
 import { api } from '../../services/api';
-import { useUsers } from '../../services/hooks/useUsers';
+import { getUsers, useUsers } from '../../services/hooks/useUsers';
 import { queryClient } from '../../services/queryClient';
 
 export default function UserList() {
@@ -45,6 +45,18 @@ export default function UserList() {
       },
       {
         staleTime: 10 * 60 * 1000, // 10 minutos
+      },
+    );
+  }
+
+  async function handlePrefetchPage(pageNumber: number) {
+    await queryClient.prefetchQuery(
+      ['users', pageNumber],
+      async () => {
+        return await getUsers(pageNumber);
+      },
+      {
+        staleTime: 1 * 60 * 1000, // 1 minutos
       },
     );
   }
@@ -140,6 +152,7 @@ export default function UserList() {
                 totalCountOfRegisters={data.totalCount}
                 currentPage={page}
                 onPageChange={setPage}
+                onPrefetcPage={handlePrefetchPage}
               />
             </>
           )}

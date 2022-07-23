@@ -4,12 +4,14 @@ interface PaginationItemProps extends ChakraButtonProps {
   number: number;
   isCurrent?: boolean;
   onPageChange: (page: number) => void;
+  onPrefetcPage: (page: number) => void;
 }
 
 export function PaginationItem({
   isCurrent = false,
   number,
   onPageChange,
+  onPrefetcPage,
 }: PaginationItemProps) {
   if (isCurrent) {
     return (
@@ -39,6 +41,7 @@ export function PaginationItem({
         bg: 'gray.500',
       }}
       onClick={() => onPageChange(number)}
+      onMouseEnter={() => onPrefetcPage(number)}
     >
       {number}
     </Button>
