@@ -1,17 +1,27 @@
 <img src=".github/dashgo-dashboard.png" />
 
 <h2 align="center">
-   dashgo. - Next.js | <img alt="badge rocketseat" align="center" src=".github\rocket.svg">
+   dashgo. - Next.js & ChakraUI | <img alt="badge rocketseat" align="center" src=".github/rocket.svg">
 </h2>
 
 <p align="center">
-<img alt="badge typescript" src=".github/badge-typescript.svg">
-<img alt="badge vscode" src=".github/badge-visual_studio_code.svg">
+<img src="https://img.shields.io/badge/ChakraUI-319795?logo=chakraui&logoColor=fff" />
+<img src="https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff" />
+<img src="https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=fff" />
+<img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=fff" />
+<img src="https://img.shields.io/badge/React Query-FF4154?logo=react-query&logoColor=fff" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" />
+<img src="https://img.shields.io/badge/Visual Studio Code-007ACC?logo=visual-studio-code&logoColor=fff" />
+<img src="https://img.shields.io/badge/Yarn-2C8EBB?logo=yarn&logoColor=fff" />
 </p>
 
 ---
 
-O **Dashgo.** é uma aplicação desenvolvida utilizando Chakra UI
+O **Dashgo.** é uma aplicação desenvolvida utilizando **Chakra UI** para criação de interfaces aplicando o conceito de interfaces declarativas.
+
+Nesta aplicação há um melhor gerenciamento dos dados trafegados nas requisições. Foi utilizada a biblioteca **React Query** para criar cache ou carregamento antecipado dos dados.
+
+Além disso, foi utilizado o **MirageJS** para criar uma API mockada.
 
 <p align="center">
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -65,14 +75,15 @@ yarn dev
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- Axios
-- Chakra UI
-- MirageJs
-- React Apexcharts
-- React Hook Forms
-- Next.js
-- TypeScript
-- Yup
+- [Axios](https://axios-http.com/)
+- [Chakra UI](https://chakra-ui.com/)
+- [MirageJs](https://miragejs.com/)
+- [React Apexcharts](https://apexcharts.com/docs/react-charts/)
+- [React Hook Forms](https://react-hook-form.com/)
+- [React Query](https://tanstack.com/query/v4)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/pt/)
+- [Yup](https://github.com/jquense/yup)
 
 ## 📝 Licença
 
